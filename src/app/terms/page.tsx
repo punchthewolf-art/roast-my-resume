@@ -35,7 +35,8 @@ export default function TermsPage() {
               <li>All payments are processed securely through Stripe</li>
               <li>Prices are in USD and include all applicable taxes</li>
               <li>Digital products are delivered instantly after payment</li>
-              <li>Refunds are available within 48 hours if you are unsatisfied with the quality</li>
+              <li>Since digital products are delivered instantly, <strong className="text-white">all sales are final</strong></li>
+              <li>If you experience a technical issue preventing delivery of your product, contact us within 24 hours for assistance</li>
             </ul>
           </section>
 
