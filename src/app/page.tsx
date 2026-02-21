@@ -23,9 +23,9 @@ const exampleRoasts = [
 ];
 
 const stats = [
-  { value: "50K+", label: "Resumes Roasted" },
-  { value: "3.2/10", label: "Avg Score" },
-  { value: "89%", label: "Got Hired After Fix" },
+  { value: "🔥", label: "Brutally Honest" },
+  { value: "⚡", label: "30-Second Roast" },
+  { value: "✨", label: "AI-Powered Fix" },
 ];
 
 export default function Home() {
@@ -59,10 +59,10 @@ export default function Home() {
           <div className="mt-8 flex items-center gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="text-2xl font-bold gradient-text">
+                <div className="text-3xl">
                   {stat.value}
                 </div>
-                <div className="text-xs text-muted">{stat.label}</div>
+                <div className="text-xs text-muted font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -99,7 +99,7 @@ export default function Home() {
                 step: "3",
                 emoji: "✨",
                 title: "Get The Fix",
-                desc: "Unlock the professionally rewritten, ATS-optimized version for just 9 euros.",
+                desc: "Unlock the professionally rewritten, ATS-optimized version starting at just $4.99.",
               },
             ].map((item) => (
               <div
@@ -178,6 +178,13 @@ export default function Home() {
           <p className="mt-2">
             Your data is processed securely and deleted after 24 hours.
           </p>
+          <div className="mt-4 flex items-center justify-center gap-4">
+            <a href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
+            <span className="text-card-border">|</span>
+            <a href="/terms" className="hover:text-accent transition-colors">Terms of Service</a>
+            <span className="text-card-border">|</span>
+            <a href="mailto:punchthewolf@gmail.com" className="hover:text-accent transition-colors">Contact</a>
+          </div>
         </footer>
       </main>
     </div>

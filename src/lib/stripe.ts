@@ -17,10 +17,17 @@ function getStripe(): Stripe {
 
 export async function createCheckoutSession(
   roastId: string,
-  amountCents: number = 900,
-  productName: string = "Resume Fix & ATS Optimization"
+  amountCents: number = 499,
+  productName: string = "Quick Fix - Resume Rewrite",
+  tier: string = "fix"
 ): Promise<string> {
   const stripe = getStripe();
+
+  const TIER_DESCRIPTIONS: Record<string, string> = {
+    fix: "Professional resume rewrite + ATS optimization",
+    pro: "Resume rewrite + Cover letter + LinkedIn summary + 3 variations",
+    career: "Full career makeover: 3 resume versions + cover letter + interview prep + salary tips",
+  };
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -30,8 +37,7 @@ export async function createCheckoutSession(
           currency: "usd",
           product_data: {
             name: productName,
-            description:
-              "Get your resume professionally rewritten and optimized by AI",
+            description: TIER_DESCRIPTIONS[tier] || TIER_DESCRIPTIONS.fix,
           },
           unit_amount: amountCents,
         },
@@ -43,6 +49,7 @@ export async function createCheckoutSession(
     cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/roast/${roastId}`,
     metadata: {
       roastId,
+      tier,
     },
   });
 

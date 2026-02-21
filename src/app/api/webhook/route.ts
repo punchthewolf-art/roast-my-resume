@@ -53,13 +53,14 @@ export async function POST(request: NextRequest) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const roastId = session.metadata?.roastId;
+    const tier = session.metadata?.tier || "fix";
 
     if (!roastId) {
       console.error("No roastId in session metadata");
       return NextResponse.json({ received: true });
     }
 
-    console.log(`Payment completed for roast: ${roastId}`);
+    console.log(`Payment completed for roast: ${roastId}, tier: ${tier}`);
 
     try {
       // Get original roast
@@ -75,9 +76,9 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ received: true });
       }
 
-      // Generate fix via Claude AI
-      console.log(`Generating fix for roast: ${roastId}`);
-      const result = await fixResume(roast.resume_text);
+      // Generate fix via Claude AI with the correct tier
+      console.log(`Generating ${tier} fix for roast: ${roastId}`);
+      const result = await fixResume(roast.resume_text, tier);
 
       // Save to Supabase
       await updateRoastWithFix(roastId, {

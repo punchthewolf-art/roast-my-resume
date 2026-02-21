@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create Stripe checkout session with tier info
-    const checkoutUrl = await createCheckoutSession(roastId, tierInfo.amount, tierInfo.name);
+    const checkoutUrl = await createCheckoutSession(roastId, tierInfo.amount, tierInfo.name, tier);
 
     return NextResponse.json({ url: checkoutUrl });
   } catch (error) {

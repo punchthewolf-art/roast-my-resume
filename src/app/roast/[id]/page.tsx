@@ -65,8 +65,32 @@ export default async function RoastPage({ params, searchParams }: PageProps) {
           )}
         </div>
 
+        {/* AstroCareer Teaser */}
+        <div className="mt-16">
+          <div className="rounded-2xl border border-purple-500/20 bg-gradient-to-b from-purple-500/10 to-transparent p-8 text-center">
+            <div className="mb-4 text-5xl">🔮</div>
+            <h3 className="text-xl font-bold">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                AstroCareer
+              </span>
+              {" "}&mdash; Coming Soon
+            </h3>
+            <p className="mt-2 text-sm text-muted max-w-md mx-auto">
+              What does the universe say about your career? Get a fun, astrology-powered
+              career reading based on your birth chart. Because why not?
+            </p>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+              </span>
+              Just for fun &mdash; Launching March 2026
+            </div>
+          </div>
+        </div>
+
         {/* Try Again CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <a
             href="/"
             className="inline-flex items-center gap-2 rounded-full border border-card-border bg-card-bg px-6 py-3 font-semibold transition-all hover:bg-card-border"

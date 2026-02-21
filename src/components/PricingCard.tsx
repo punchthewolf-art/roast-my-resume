@@ -17,6 +17,7 @@ interface PricingTier {
   badge?: string;
   cta: string;
   tier: string;
+  emoji: string;
 }
 
 const tiers: PricingTier[] = [
@@ -25,12 +26,13 @@ const tiers: PricingTier[] = [
     price: "$4.99",
     priceNum: 499,
     period: "one-time",
-    description: "Resume rewrite + ATS basics",
+    description: "Resume rewrite + ATS optimization",
+    emoji: "🔧",
     features: [
       "Complete resume rewrite by AI",
-      "ATS-optimized formatting",
+      "ATS-optimized structure & formatting",
       "Industry keyword optimization",
-      "Clean, professional structure",
+      "Strong action verbs & metrics",
       "Copy-paste ready format",
     ],
     highlighted: false,
@@ -42,13 +44,14 @@ const tiers: PricingTier[] = [
     price: "$9.99",
     priceNum: 999,
     period: "one-time",
-    description: "Everything + Cover Letter + LinkedIn",
+    description: "Resume + Cover Letter + LinkedIn",
+    emoji: "🚀",
     features: [
       "Everything in Quick Fix",
       "Custom cover letter template",
-      "LinkedIn bio optimization",
-      "Quantified achievement suggestions",
-      "3 resume variations (by industry)",
+      "LinkedIn profile optimization",
+      "3 professional summary variations",
+      "Quantified achievements for every point",
       "Priority AI processing",
     ],
     highlighted: true,
@@ -62,13 +65,14 @@ const tiers: PricingTier[] = [
     priceNum: 1999,
     period: "one-time",
     description: "Full career makeover by AI",
+    emoji: "👑",
     features: [
       "Everything in Pro Package",
-      "Interview preparation guide",
-      "Salary negotiation tips",
-      "5 tailored resume versions",
-      "Cover letter for each version",
-      "30-day email support",
+      "3 tailored resume versions",
+      "Interview preparation guide (10 Q&As)",
+      "Salary negotiation scripts",
+      "LinkedIn headline + skills strategy",
+      "48h email support",
     ],
     highlighted: false,
     badge: "PREMIUM",
@@ -79,9 +83,11 @@ const tiers: PricingTier[] = [
 
 export default function PricingCard({ roastId }: PricingCardProps) {
   const [loadingTier, setLoadingTier] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleCheckout = async (tier: PricingTier) => {
     setLoadingTier(tier.tier);
+    setError(null);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
@@ -91,10 +97,14 @@ export default function PricingCard({ roastId }: PricingCardProps) {
 
       if (!res.ok) throw new Error("Checkout failed");
 
-      const { url } = await res.json();
-      window.location.href = url;
+      const data = await res.json();
+      if (data.already_paid) {
+        window.location.href = data.redirect;
+        return;
+      }
+      window.location.href = data.url;
     } catch {
-      alert("Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again.");
       setLoadingTier(null);
     }
   };
@@ -181,8 +191,13 @@ export default function PricingCard({ roastId }: PricingCardProps) {
         </div>
       ))}
 
+      {error && (
+        <div className="col-span-full rounded-lg border border-danger/30 bg-danger/10 p-3 text-center text-sm text-danger">
+          {error}
+        </div>
+      )}
       <p className="col-span-full text-center text-xs text-muted mt-2">
-        Secure payment via Stripe &bull; Instant delivery &bull; Satisfaction guaranteed
+        🔒 Secure payment via Stripe &bull; ⚡ Instant delivery &bull; 💯 48h refund guarantee
       </p>
     </div>
   );
