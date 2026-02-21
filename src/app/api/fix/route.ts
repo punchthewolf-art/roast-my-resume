@@ -22,7 +22,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if already fixed
+    // SECURITY: Check if user has paid
+    if (!roast.paid) {
+      return NextResponse.json(
+        { error: "Payment required. Please complete checkout first." },
+        { status: 402 }
+      );
+    }
+
+    // Already fixed? Return cached result
     if (roast.fixed_text) {
       return NextResponse.json({
         fixed: roast.fixed_text,
@@ -31,7 +39,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Generate fix via Claude
+    // Fallback: Generate fix if webhook hasn't processed yet
+    console.log(`Generating fix on-demand for paid roast: ${roastId}`);
     const result = await fixResume(roast.resume_text);
 
     // Update in Supabase
@@ -56,4 +65,26 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+// GET endpoint to check fix status (for polling)
+export async function GET(request: NextRequest) {
+  const roastId = request.nextUrl.searchParams.get("roastId");
+
+  if (!roastId) {
+    return NextResponse.json({ error: "No roast ID" }, { status: 400 });
+  }
+
+  const roast = await getRoast(roastId);
+  if (!roast) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
+  return NextResponse.json({
+    paid: roast.paid,
+    hasfix: !!roast.fixed_text,
+    fixed: roast.fixed_text,
+    atsScore: roast.ats_score,
+    improvements: roast.improvements,
+  });
 }
