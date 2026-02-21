@@ -3,9 +3,9 @@ import { createCheckoutSession } from "@/lib/stripe";
 import { getRoast } from "@/lib/supabase";
 
 const TIER_PRICES: Record<string, { amount: number; name: string }> = {
-  fix: { amount: 900, name: "Quick Fix - Resume Rewrite" },
-  pro: { amount: 1900, name: "Pro Package - Resume + Cover Letter + LinkedIn" },
-  career: { amount: 3900, name: "Career Boost - Full Career Makeover" },
+  fix: { amount: 499, name: "Quick Fix - Resume Rewrite" },
+  pro: { amount: 999, name: "Pro Package - Resume + Cover Letter + LinkedIn" },
+  career: { amount: 1999, name: "Career Boost - Full Career Makeover" },
 };
 
 export async function POST(request: NextRequest) {

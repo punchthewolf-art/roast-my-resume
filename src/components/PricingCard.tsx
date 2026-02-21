@@ -22,8 +22,8 @@ interface PricingTier {
 const tiers: PricingTier[] = [
   {
     name: "Quick Fix",
-    price: "9\u20AC",
-    priceNum: 9,
+    price: "$4.99",
+    priceNum: 499,
     period: "one-time",
     description: "Resume rewrite + ATS basics",
     features: [
@@ -39,8 +39,8 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Pro Package",
-    price: "19\u20AC",
-    priceNum: 19,
+    price: "$9.99",
+    priceNum: 999,
     period: "one-time",
     description: "Everything + Cover Letter + LinkedIn",
     features: [
@@ -58,8 +58,8 @@ const tiers: PricingTier[] = [
   },
   {
     name: "Career Boost",
-    price: "39\u20AC",
-    priceNum: 39,
+    price: "$19.99",
+    priceNum: 1999,
     period: "one-time",
     description: "Full career makeover by AI",
     features: [
