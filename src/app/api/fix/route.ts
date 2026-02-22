@@ -4,7 +4,7 @@ import { getRoast, updateRoastWithFix } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   try {
-    const { roastId } = await request.json();
+    const { roastId, locale } = await request.json();
 
     if (!roastId) {
       return NextResponse.json(
@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     // Fallback: Generate fix if webhook hasn't processed yet
     console.log(`Generating fix on-demand for paid roast: ${roastId}`);
-    const result = await fixResume(roast.resume_text);
+    const result = await fixResume(roast.resume_text, locale || "en");
 
     // Update in Supabase
     await updateRoastWithFix(roastId, {

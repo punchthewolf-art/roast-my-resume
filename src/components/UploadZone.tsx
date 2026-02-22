@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function UploadZone() {
   const [isDragging, setIsDragging] = useState(false);
@@ -9,6 +10,7 @@ export default function UploadZone() {
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState("");
   const router = useRouter();
+  const { t, locale } = useTranslation();
 
   const handleFile = useCallback(
     async (file: File) => {
@@ -16,24 +18,24 @@ export default function UploadZone() {
 
       // Validate file
       if (file.type !== "application/pdf") {
-        setError("Only PDF files are accepted. Please upload a PDF resume.");
+        setError(t("upload.error.pdf"));
         return;
       }
 
       if (file.size > 10 * 1024 * 1024) {
-        setError("File too large. Maximum size is 10MB.");
+        setError(t("upload.error.size"));
         return;
       }
 
       setIsUploading(true);
-      setProgress("Uploading your resume...");
+      setProgress(t("upload.progress1"));
 
       try {
         // Upload PDF
         const formData = new FormData();
         formData.append("file", file);
 
-        setProgress("Extracting text from your CV...");
+        setProgress(t("upload.progress2"));
         const uploadRes = await fetch("/api/upload", {
           method: "POST",
           body: formData,
@@ -46,13 +48,13 @@ export default function UploadZone() {
 
         const { text } = await uploadRes.json();
 
-        setProgress("AI is reading your resume... preparing the roast 🔥");
+        setProgress(t("upload.progress3"));
 
-        // Call roast API
+        // Call roast API with locale
         const roastRes = await fetch("/api/roast", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text }),
+          body: JSON.stringify({ text, locale }),
         });
 
         if (!roastRes.ok) {
@@ -66,13 +68,13 @@ export default function UploadZone() {
         router.push(`/roast/${id}`);
       } catch (err) {
         setError(
-          err instanceof Error ? err.message : "Something went wrong. Try again."
+          err instanceof Error ? err.message : t("upload.error.generic")
         );
         setIsUploading(false);
         setProgress("");
       }
     },
-    [router]
+    [router, t, locale]
   );
 
   const handleDrop = useCallback(
@@ -149,10 +151,10 @@ export default function UploadZone() {
         </div>
         <div className="text-center">
           <p className="text-lg font-semibold">
-            {isDragging ? "Drop it like it's hot! 🔥" : "Drop your resume here"}
+            {isDragging ? t("upload.dragging") : t("upload.idle")}
           </p>
           <p className="mt-1 text-sm text-muted">
-            or click to browse &bull; PDF only &bull; Max 10MB
+            {t("upload.browse")}
           </p>
         </div>
         <input

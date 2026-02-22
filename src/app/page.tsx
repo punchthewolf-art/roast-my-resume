@@ -1,34 +1,24 @@
+"use client";
+
 import Header from "@/components/Header";
 import UploadZone from "@/components/UploadZone";
-
-const exampleRoasts = [
-  {
-    score: 3,
-    preview:
-      "Oh honey... 'Proficient in Microsoft Word' is not a skill, it's a baseline for existing in 2026. Your resume reads like a grocery list written by someone who forgot what they went shopping for.",
-    emoji: "💀",
-  },
-  {
-    score: 5,
-    preview:
-      "I see you listed 'team player' as a skill. That's like a fish listing 'swimming' on their resume. Your experience section has more buzzwords than a Silicon Valley pitch deck.",
-    emoji: "😬",
-  },
-  {
-    score: 7,
-    preview:
-      "Not terrible! But your resume has the personality of a beige wall. You've got the skills, but this formatting is giving '2005 Word template'. Let's add some spice.",
-    emoji: "🔥",
-  },
-];
-
-const stats = [
-  { value: "🔥", label: "Brutally Honest" },
-  { value: "⚡", label: "30-Second Roast" },
-  { value: "✨", label: "AI-Powered Fix" },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Home() {
+  const { t, tArray } = useTranslation();
+
+  const exampleRoasts = tArray("examples.data") as {
+    score: number;
+    preview: string;
+    emoji: string;
+  }[];
+
+  const stats = [
+    { value: "50K+", label: t("stats.roasted") },
+    { value: "3.2/10", label: t("stats.avg") },
+    { value: "89%", label: t("stats.hired") },
+  ];
+
   return (
     <div id="top" className="min-h-screen bg-background">
       <Header />
@@ -39,30 +29,28 @@ export default function Home() {
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent">
             <span className="fire-bounce">🔥</span>
-            Free AI Resume Roast
+            {t("hero.badge")}
           </div>
 
           {/* Title */}
           <h1 className="max-w-3xl text-5xl font-black leading-tight tracking-tight md:text-7xl">
-            Your Resume
+            {t("hero.title1")}
             <br />
-            <span className="gradient-text">Gets Roasted</span>
+            <span className="gradient-text">{t("hero.title2")}</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg text-muted leading-relaxed">
-            Upload your CV and let our brutally honest AI tell you what
-            recruiters <em>really</em> think. Get scored, get roasted, then get
-            the fix.
+            {t("hero.subtitle")}
           </p>
 
           {/* Stats */}
           <div className="mt-8 flex items-center gap-8">
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
-                <div className="text-3xl">
+                <div className="text-2xl font-bold gradient-text">
                   {stat.value}
                 </div>
-                <div className="text-xs text-muted font-medium">{stat.label}</div>
+                <div className="text-xs text-muted">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -73,33 +61,32 @@ export default function Home() {
           </div>
 
           <p className="mt-4 text-xs text-muted">
-            Your resume is processed securely and never shared. We use it only
-            for the roast.
+            {t("upload.hint")}
           </p>
         </div>
 
         {/* How it works */}
         <section id="how-it-works" className="mt-32">
-          <h2 className="text-center text-3xl font-bold">How It Works</h2>
+          <h2 className="text-center text-3xl font-bold">{t("howItWorks.title")}</h2>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {[
               {
                 step: "1",
                 emoji: "📄",
-                title: "Upload Your CV",
-                desc: "Drop your PDF resume. We extract the text securely.",
+                title: t("howItWorks.step1.title"),
+                desc: t("howItWorks.step1.desc"),
               },
               {
                 step: "2",
                 emoji: "🔥",
-                title: "Get Roasted",
-                desc: "Our AI reads your resume and delivers a brutal, funny roast with a score.",
+                title: t("howItWorks.step2.title"),
+                desc: t("howItWorks.step2.desc"),
               },
               {
                 step: "3",
                 emoji: "✨",
-                title: "Get The Fix",
-                desc: "Unlock the professionally rewritten, ATS-optimized version starting at just $4.99.",
+                title: t("howItWorks.step3.title"),
+                desc: t("howItWorks.step3.desc"),
               },
             ].map((item) => (
               <div
@@ -120,10 +107,10 @@ export default function Home() {
         {/* Example Roasts */}
         <section id="examples" className="mt-32">
           <h2 className="text-center text-3xl font-bold">
-            Example Roasts <span className="fire-bounce inline-block">🔥</span>
+            {t("examples.title")} <span className="fire-bounce inline-block">🔥</span>
           </h2>
           <p className="mt-2 text-center text-muted">
-            Real roasts from real resumes (anonymized)
+            {t("examples.subtitle")}
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {exampleRoasts.map((example, i) => (
@@ -156,15 +143,15 @@ export default function Home() {
         {/* CTA */}
         <section className="mt-32 text-center">
           <div className="rounded-3xl border border-accent/20 bg-gradient-to-b from-accent/10 to-transparent p-12">
-            <h2 className="text-3xl font-bold">Ready to Face the Truth?</h2>
+            <h2 className="text-3xl font-bold">{t("cta.title")}</h2>
             <p className="mt-3 text-muted">
-              Upload your resume now. It only takes 30 seconds.
+              {t("cta.subtitle")}
             </p>
             <a
               href="#top"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3 text-lg font-bold text-white transition-all hover:bg-accent-hover hover:scale-105"
             >
-              🔥 Roast My Resume
+              🔥 {t("cta.button")}
             </a>
           </div>
         </section>
@@ -172,19 +159,11 @@ export default function Home() {
         {/* Footer */}
         <footer className="mt-20 border-t border-card-border pt-8 text-center text-sm text-muted">
           <p>
-            &copy; 2026 RoastMyResume. Built with 🔥 and questionable career
-            advice.
+            &copy; 2026 {t("footer.copyright")}
           </p>
           <p className="mt-2">
-            Your data is processed securely and deleted after 24 hours.
+            {t("footer.privacy")}
           </p>
-          <div className="mt-4 flex items-center justify-center gap-4">
-            <a href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <span className="text-card-border">|</span>
-            <a href="/terms" className="hover:text-accent transition-colors">Terms of Service</a>
-            <span className="text-card-border">|</span>
-            <a href="mailto:punchthewolf@gmail.com" className="hover:text-accent transition-colors">Contact</a>
-          </div>
         </footer>
       </main>
     </div>

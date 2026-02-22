@@ -1,0 +1,103 @@
+{
+  "nav.howItWorks": "Comment \u00e7a marche",
+  "nav.examples": "Exemples",
+  "nav.cta": "Roaster mon CV",
+
+  "hero.badge": "Roast IA gratuit de votre CV",
+  "hero.title1": "Votre CV",
+  "hero.title2": "Se fait Roaster",
+  "hero.subtitle": "Uploadez votre CV et laissez notre IA brutalement honn\u00eate vous dire ce que les recruteurs pensent _vraiment_. Score, roast, puis correction.",
+
+  "stats.roasted": "CV Roast\u00e9s",
+  "stats.avg": "Score Moyen",
+  "stats.hired": "Embauch\u00e9s Apr\u00e8s Fix",
+
+  "upload.hint": "Votre CV est trait\u00e9 de mani\u00e8re s\u00e9curis\u00e9e et jamais partag\u00e9. On l'utilise uniquement pour le roast.",
+
+  "howItWorks.title": "Comment \u00c7a Marche",
+  "howItWorks.step1.title": "Uploadez Votre CV",
+  "howItWorks.step1.desc": "D\u00e9posez votre CV en PDF. On extrait le texte de mani\u00e8re s\u00e9curis\u00e9e.",
+  "howItWorks.step2.title": "Faites-vous Roaster",
+  "howItWorks.step2.desc": "Notre IA lit votre CV et vous livre un roast brutal et dr\u00f4le avec un score.",
+  "howItWorks.step3.title": "Obtenez la Correction",
+  "howItWorks.step3.desc": "D\u00e9bloquez la version r\u00e9\u00e9crite professionnellement et optimis\u00e9e ATS pour seulement 9 euros.",
+
+  "examples.title": "Exemples de Roasts",
+  "examples.subtitle": "De vrais roasts de vrais CV (anonymis\u00e9s)",
+
+  "cta.title": "Pr\u00eat \u00e0 Affronter la V\u00e9rit\u00e9 ?",
+  "cta.subtitle": "Uploadez votre CV maintenant. \u00c7a prend 30 secondes.",
+  "cta.button": "Roaster Mon CV",
+
+  "footer.copyright": "RoastMyResume. Con\u00e7u avec \ud83d\udd25 et des conseils carri\u00e8re douteux.",
+  "footer.privacy": "Vos donn\u00e9es sont trait\u00e9es de mani\u00e8re s\u00e9curis\u00e9e et supprim\u00e9es apr\u00e8s 24 heures.",
+
+  "upload.idle": "D\u00e9posez votre CV ici",
+  "upload.dragging": "L\u00e2chez-le ! \ud83d\udd25",
+  "upload.browse": "ou cliquez pour parcourir \u2022 PDF uniquement \u2022 Max 10 Mo",
+  "upload.progress1": "Upload de votre CV...",
+  "upload.progress2": "Extraction du texte de votre CV...",
+  "upload.progress3": "L'IA lit votre CV... pr\u00e9paration du roast \ud83d\udd25",
+  "upload.error.pdf": "Seuls les fichiers PDF sont accept\u00e9s. Veuillez uploader un CV en PDF.",
+  "upload.error.size": "Fichier trop volumineux. Taille maximum : 10 Mo.",
+  "upload.error.short": "Le texte du CV est trop court. Veuillez uploader un vrai CV.",
+  "upload.error.generic": "Une erreur est survenue. R\u00e9essayez.",
+
+  "roast.heading": "Le Roast",
+  "roast.problems": "Top 5 des Probl\u00e8mes",
+  "roast.share": "Partagez votre score avec le monde (si vous osez)",
+  "roast.fixTitle": "Vous Voulez Vraiment \u00catre Embauch\u00e9 ?",
+  "roast.fixSubtitle": "Arr\u00eatez d'\u00eatre ghost\u00e9. Faites corriger votre CV par l'IA.",
+  "roast.tryAgain": "Roaster un Autre CV",
+
+  "share.twitter": "Partager sur X",
+  "share.linkedin": "LinkedIn",
+  "share.copy": "Copier le Lien",
+  "share.copied": "Lien copi\u00e9 !",
+
+  "pricing.badge": "POPULAIRE",
+  "pricing.title": "Faites Corriger Votre CV",
+  "pricing.subtitle": "R\u00e9\u00e9criture pro + optimisation ATS",
+  "pricing.price": "9\u20ac",
+  "pricing.priceLabel": "paiement unique",
+  "pricing.feature1": "R\u00e9\u00e9criture compl\u00e8te du CV par IA",
+  "pricing.feature2": "Mise en forme optimis\u00e9e ATS",
+  "pricing.feature3": "Optimisation des mots-cl\u00e9s sectoriels",
+  "pricing.feature4": "Suggestions de r\u00e9alisations quantifi\u00e9es",
+  "pricing.feature5": "Structure propre et professionnelle",
+  "pricing.feature6": "Copier-coller ou t\u00e9l\u00e9charger en texte",
+  "pricing.cta": "Corriger Mon CV Maintenant",
+  "pricing.ctaLoading": "Traitement...",
+  "pricing.secure": "Paiement s\u00e9curis\u00e9 via Stripe \u2022 Livraison instantan\u00e9e",
+  "pricing.error": "Une erreur est survenue. Veuillez r\u00e9essayer.",
+
+  "fixed.atsTitle": "Score de Compatibilit\u00e9 ATS",
+  "fixed.atsSubtitle": "Votre CV corrig\u00e9 est optimis\u00e9 pour les syst\u00e8mes de suivi des candidatures",
+  "fixed.improvements": "Am\u00e9liorations Apport\u00e9es",
+  "fixed.resumeTitle": "Votre CV Corrig\u00e9",
+  "fixed.copy": "Tout Copier",
+  "fixed.copied": "Copi\u00e9 !",
+
+  "astro.title": "AstroCareer",
+  "astro.coming": "Bient\u00f4t Disponible",
+  "astro.desc": "Que dit l'univers sur votre carri\u00e8re ? Obtenez une lecture de carri\u00e8re astro fun bas\u00e9e sur votre th\u00e8me astral. Parce que pourquoi pas ?",
+  "astro.badge": "Juste pour le fun \u2014 Lancement Mars 2026",
+
+  "examples.data": [
+    {
+      "score": 3,
+      "preview": "Oh mon Dieu... \u00abMa\u00eetrise de Microsoft Word\u00bb n'est pas une comp\u00e9tence, c'est un pr\u00e9requis pour exister en 2026. Votre CV se lit comme une liste de courses \u00e9crite par quelqu'un qui a oubli\u00e9 pourquoi il est all\u00e9 au magasin.",
+      "emoji": "\ud83d\udc80"
+    },
+    {
+      "score": 5,
+      "preview": "Je vois que vous avez list\u00e9 \u00ab\u00e9quipier\u00bb comme comp\u00e9tence. C'est comme un poisson qui mettrait \u00abnage\u00bb sur son CV. Votre section exp\u00e9rience a plus de mots-cl\u00e9s vides qu'un pitch de startup parisienne.",
+      "emoji": "\ud83d\ude2c"
+    },
+    {
+      "score": 7,
+      "preview": "Pas terrible ! Mais votre CV a la personnalit\u00e9 d'un mur beige. Vous avez les comp\u00e9tences, mais cette mise en forme crie \u00abmod\u00e8le Word 2005\u00bb. Ajoutons un peu de piquant.",
+      "emoji": "\ud83d\udd25"
+    }
+  ]
+}

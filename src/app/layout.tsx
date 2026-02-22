@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ClientLayout from "@/components/ClientLayout";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -8,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RoastMyResume - Get Your CV Brutally Roasted by AI",
+  title: "RoastMyResume - Get Your CV Brutally Roasted by AI | Faites Roaster Votre CV",
   description:
-    "Upload your resume and get a brutally honest, hilarious AI roast. Find out what recruiters really think. Free roast, paid fix.",
+    "Upload your resume and get a brutally honest, hilarious AI roast. Uploadez votre CV et recevez un roast brutal et hilarant par l'IA.",
   keywords: [
     "resume roast",
     "cv review",
@@ -18,13 +19,14 @@ export const metadata: Metadata = {
     "ATS optimization",
     "resume feedback",
     "career",
+    "roast CV",
+    "analyse CV IA",
   ],
   openGraph: {
     title: "RoastMyResume - Get Your CV Brutally Roasted by AI",
     description:
       "Upload your resume. Get roasted. Get hired. Free AI resume roast with brutal honesty.",
     type: "website",
-    locale: "en_US",
     siteName: "RoastMyResume",
   },
   twitter: {
@@ -42,7 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} antialiased`}>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   );
 }

@@ -5,24 +5,24 @@ import { saveRoast } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   try {
-    const { text } = await request.json();
+    const { text, locale } = await request.json();
 
     if (!text || typeof text !== "string") {
       return NextResponse.json(
-        { error: "No resume text provided" },
+        { error: locale === "fr" ? "Aucun texte de CV fourni" : "No resume text provided" },
         { status: 400 }
       );
     }
 
     if (text.length < 50) {
       return NextResponse.json(
-        { error: "Resume text is too short. Please upload a proper resume." },
+        { error: locale === "fr" ? "Le texte du CV est trop court. Veuillez uploader un vrai CV." : "Resume text is too short. Please upload a proper resume." },
         { status: 400 }
       );
     }
 
-    // Generate roast via Claude
-    const result = await roastResume(text);
+    // Generate roast via Claude (with locale for language)
+    const result = await roastResume(text, locale || "en");
 
     // Save to Supabase
     const id = uuidv4();

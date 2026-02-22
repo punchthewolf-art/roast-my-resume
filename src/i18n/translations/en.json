@@ -1,0 +1,103 @@
+{
+  "nav.howItWorks": "How it works",
+  "nav.examples": "Examples",
+  "nav.cta": "Roast My CV",
+
+  "hero.badge": "Free AI Resume Roast",
+  "hero.title1": "Your Resume",
+  "hero.title2": "Gets Roasted",
+  "hero.subtitle": "Upload your CV and let our brutally honest AI tell you what recruiters _really_ think. Get scored, get roasted, then get the fix.",
+
+  "stats.roasted": "Resumes Roasted",
+  "stats.avg": "Avg Score",
+  "stats.hired": "Got Hired After Fix",
+
+  "upload.hint": "Your resume is processed securely and never shared. We use it only for the roast.",
+
+  "howItWorks.title": "How It Works",
+  "howItWorks.step1.title": "Upload Your CV",
+  "howItWorks.step1.desc": "Drop your PDF resume. We extract the text securely.",
+  "howItWorks.step2.title": "Get Roasted",
+  "howItWorks.step2.desc": "Our AI reads your resume and delivers a brutal, funny roast with a score.",
+  "howItWorks.step3.title": "Get The Fix",
+  "howItWorks.step3.desc": "Unlock the professionally rewritten, ATS-optimized version for just 9 euros.",
+
+  "examples.title": "Example Roasts",
+  "examples.subtitle": "Real roasts from real resumes (anonymized)",
+
+  "cta.title": "Ready to Face the Truth?",
+  "cta.subtitle": "Upload your resume now. It only takes 30 seconds.",
+  "cta.button": "Roast My Resume",
+
+  "footer.copyright": "RoastMyResume. Built with \ud83d\udd25 and questionable career advice.",
+  "footer.privacy": "Your data is processed securely and deleted after 24 hours.",
+
+  "upload.idle": "Drop your resume here",
+  "upload.dragging": "Drop it like it's hot! \ud83d\udd25",
+  "upload.browse": "or click to browse \u2022 PDF only \u2022 Max 10MB",
+  "upload.progress1": "Uploading your resume...",
+  "upload.progress2": "Extracting text from your CV...",
+  "upload.progress3": "AI is reading your resume... preparing the roast \ud83d\udd25",
+  "upload.error.pdf": "Only PDF files are accepted. Please upload a PDF resume.",
+  "upload.error.size": "File too large. Maximum size is 10MB.",
+  "upload.error.short": "Resume text is too short. Please upload a proper resume.",
+  "upload.error.generic": "Something went wrong. Try again.",
+
+  "roast.heading": "The Roast",
+  "roast.problems": "Top 5 Problems",
+  "roast.share": "Share your score with the world (if you dare)",
+  "roast.fixTitle": "Want to Actually Get Hired?",
+  "roast.fixSubtitle": "Stop getting ghosted. Get your resume fixed by AI.",
+  "roast.tryAgain": "Roast Another Resume",
+
+  "share.twitter": "Share on X",
+  "share.linkedin": "LinkedIn",
+  "share.copy": "Copy Link",
+  "share.copied": "Link copied to clipboard!",
+
+  "pricing.badge": "POPULAR",
+  "pricing.title": "Get Your Resume Fixed",
+  "pricing.subtitle": "Professional rewrite + ATS optimization",
+  "pricing.price": "9\u20ac",
+  "pricing.priceLabel": "one-time",
+  "pricing.feature1": "Complete resume rewrite by AI",
+  "pricing.feature2": "ATS-optimized formatting",
+  "pricing.feature3": "Industry keyword optimization",
+  "pricing.feature4": "Quantified achievement suggestions",
+  "pricing.feature5": "Clean, professional structure",
+  "pricing.feature6": "Download as text / copy-paste ready",
+  "pricing.cta": "Fix My Resume Now",
+  "pricing.ctaLoading": "Processing...",
+  "pricing.secure": "Secure payment via Stripe \u2022 Instant delivery",
+  "pricing.error": "Something went wrong. Please try again.",
+
+  "fixed.atsTitle": "ATS Compatibility Score",
+  "fixed.atsSubtitle": "Your fixed resume is optimized for Applicant Tracking Systems",
+  "fixed.improvements": "Improvements Made",
+  "fixed.resumeTitle": "Your Fixed Resume",
+  "fixed.copy": "Copy All",
+  "fixed.copied": "Copied!",
+
+  "astro.title": "AstroCareer",
+  "astro.coming": "Coming Soon",
+  "astro.desc": "What does the universe say about your career? Get a fun, astrology-powered career reading based on your birth chart. Because why not?",
+  "astro.badge": "Just for fun \u2014 Launching March 2026",
+
+  "examples.data": [
+    {
+      "score": 3,
+      "preview": "Oh honey... 'Proficient in Microsoft Word' is not a skill, it's a baseline for existing in 2026. Your resume reads like a grocery list written by someone who forgot what they went shopping for.",
+      "emoji": "\ud83d\udc80"
+    },
+    {
+      "score": 5,
+      "preview": "I see you listed 'team player' as a skill. That's like a fish listing 'swimming' on their resume. Your experience section has more buzzwords than a Silicon Valley pitch deck.",
+      "emoji": "\ud83d\ude2c"
+    },
+    {
+      "score": 7,
+      "preview": "Not terrible! But your resume has the personality of a beige wall. You've got the skills, but this formatting is giving '2005 Word template'. Let's add some spice.",
+      "emoji": "\ud83d\udd25"
+    }
+  ]
+}

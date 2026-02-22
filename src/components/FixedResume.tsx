@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 interface FixedResumeProps {
   fixedText: string;
@@ -14,6 +15,7 @@ export default function FixedResume({
   improvements,
 }: FixedResumeProps) {
   const [copied, setCopied] = useState(false);
+  const { t } = useTranslation();
 
   const handleCopy = async () => {
     try {
@@ -41,15 +43,15 @@ export default function FixedResume({
           <span className="text-2xl font-black text-white">{atsScore}%</span>
         </div>
         <div className="text-center">
-          <h3 className="text-lg font-bold text-success">ATS Compatibility Score</h3>
-          <p className="text-sm text-muted">Your fixed resume is optimized for Applicant Tracking Systems</p>
+          <h3 className="text-lg font-bold text-success">{t("fixed.atsTitle")}</h3>
+          <p className="text-sm text-muted">{t("fixed.atsSubtitle")}</p>
         </div>
       </div>
 
       {/* Improvements */}
       <div className="rounded-2xl border border-card-border bg-card-bg p-6">
         <h3 className="mb-4 flex items-center gap-2 text-lg font-bold">
-          <span>✨</span> Improvements Made
+          <span>✨</span> {t("fixed.improvements")}
         </h3>
         <div className="space-y-2">
           {improvements.map((improvement, index) => (
@@ -80,7 +82,7 @@ export default function FixedResume({
       <div className="rounded-2xl border border-card-border bg-card-bg p-6">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="flex items-center gap-2 text-lg font-bold">
-            <span>📄</span> Your Fixed Resume
+            <span>📄</span> {t("fixed.resumeTitle")}
           </h3>
           <button
             onClick={handleCopy}
@@ -91,14 +93,14 @@ export default function FixedResume({
                 <svg className="h-4 w-4 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Copied!
+                {t("fixed.copied")}
               </>
             ) : (
               <>
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
-                Copy All
+                {t("fixed.copy")}
               </>
             )}
           </button>
